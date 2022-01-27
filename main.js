@@ -12,7 +12,7 @@ class Calculator {
     }
     
     delete() {
-    this.currentOperand = this.currentOperand/toString().slice(0, -1)
+        this.currentOperand = this.currentOperand.toString().slice(0, -1)
     }
     
     appendNumber(number) {
@@ -59,7 +59,11 @@ class Calculator {
 
     updateDisplay() {
       this.currentOperandText.innerText = this.currentOperand
-      this.previousOperandText.innerText = this.previousOperand
+      if (this.operation != null) {
+      this.previousOperandText.innerText = `${this.previousOperand} ${this.operation}` // should now show prev operand & operation, then clear following using equals button.
+      } else {
+          this.previousOperandText.innerText = ''
+      }
     }
 }
 
